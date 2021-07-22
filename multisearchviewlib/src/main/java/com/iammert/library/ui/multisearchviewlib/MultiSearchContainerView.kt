@@ -24,6 +24,8 @@ class MultiSearchContainerView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
+    var hint = "Search"
+
     var selectedTabStyle = 0
 
     var searchTextStyle = 0
@@ -190,6 +192,7 @@ class MultiSearchContainerView @JvmOverloads constructor(
     private fun createNewSearchView(): ViewItemBinding {
         val viewItem: ViewItemBinding = context.inflate(R.layout.view_item)
 
+        viewItem.editTextSearch.hint = hint
         viewItem.editTextSearch.setStyle(context, searchTextStyle)
 
         viewItem.root.layoutParams = LinearLayout.LayoutParams(searchViewWidth.toInt(), WRAP_CONTENT)

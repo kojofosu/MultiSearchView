@@ -23,7 +23,6 @@
                 android:paddingRight="8dp"
                 android:paddingBottom="12dp"
                 android:background="@null"
-                android:hint="Search"
                 android:imeOptions="actionSearch"
                 android:theme="@style/EditTextStyle"
                 android:maxLength="15"

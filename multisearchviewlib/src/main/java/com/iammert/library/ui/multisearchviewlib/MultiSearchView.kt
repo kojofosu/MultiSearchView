@@ -66,4 +66,7 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         binding.imageViewSearch.imageTintList = AppCompatResources.getColorStateList(context, color)
     }
 
+    fun setHint(hint: String) {
+        binding.searchViewContainer.hint = hint
+    }
 }
