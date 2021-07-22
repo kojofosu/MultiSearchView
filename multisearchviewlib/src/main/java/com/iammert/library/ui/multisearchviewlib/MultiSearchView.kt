@@ -25,6 +25,12 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
 
     private val binding = inflate<ViewMultiSearchBinding>(R.layout.view_multi_search)
 
+    var hint : String
+        get() = binding.searchViewContainer.hint
+        set(value) {
+            binding.searchViewContainer.hint = value
+        }
+
     init {
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.MultiSearchView, defStyleAttr, defStyleAttr)
         val searchTextStyle = typedArray.getResourceId(R.styleable.MultiSearchView_searchTextStyle, 0)
@@ -64,9 +70,5 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun setSearchIconColor(color : Int) {
         binding.imageViewSearch.imageTintList = AppCompatResources.getColorStateList(context, color)
-    }
-
-    fun setHint(hint: String) {
-        binding.searchViewContainer.hint = hint
     }
 }
