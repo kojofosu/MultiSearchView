@@ -33,11 +33,6 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
             binding.searchViewContainer.hint = value
         }
 
-    var hintColor : Int?
-        get() = binding.searchViewContainer.hintColor
-        set(value) {
-            binding.searchViewContainer.hintColor = value
-        }
     init {
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.MultiSearchView, defStyleAttr, defStyleAttr)
         val searchTextStyle = typedArray.getResourceId(R.styleable.MultiSearchView_searchTextStyle, 0)
@@ -78,6 +73,16 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
 
     fun setSearchIconDrawable(drawable: Int) {
         binding.imageViewSearch.setImageResource(drawable)
+    }
+
+    fun setHintColor(colorString: String) {
+        val colorInt = Color.parseColor(colorString)
+        binding.searchViewContainer.hintColor = colorInt
+    }
+
+    fun setHintColor(color: Int) {
+        val colorStateList = AppCompatResources.getColorStateList(context, color)
+        binding.searchViewContainer.hintColorStateList = colorStateList
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

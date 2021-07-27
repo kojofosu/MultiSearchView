@@ -3,6 +3,7 @@ package com.iammert.library.ui.multisearchviewlib
 import android.animation.LayoutTransition
 import android.animation.ValueAnimator
 import android.content.Context
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
@@ -27,6 +28,8 @@ class MultiSearchContainerView @JvmOverloads constructor(
     var hint = "Search"
 
     var hintColor: Int? = null
+
+    var hintColorStateList: ColorStateList? = null
 
     var selectedTabStyle = 0
 
@@ -195,7 +198,14 @@ class MultiSearchContainerView @JvmOverloads constructor(
         val viewItem: ViewItemBinding = context.inflate(R.layout.view_item)
 
         viewItem.editTextSearch.hint = hint
-        hintColor?.let { viewItem.editTextSearch.setHintTextColor(it) }
+
+        if (hintColorStateList != null)
+            viewItem.editTextSearch.setHintTextColor(hintColorStateList)
+
+        if (hintColor != null)
+            viewItem.editTextSearch.setHintTextColor(hintColor as Int)
+
+
         viewItem.editTextSearch.setStyle(context, searchTextStyle)
 
         viewItem.root.layoutParams = LinearLayout.LayoutParams(searchViewWidth.toInt(), WRAP_CONTENT)
