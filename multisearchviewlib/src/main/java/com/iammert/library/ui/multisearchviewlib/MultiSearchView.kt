@@ -54,8 +54,12 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         setSearchIconDrawable(imageSource)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setSearchIconColor(searchIconColorResID)
-            setSearchIconColor(searchIconColorColorString!!)
+            if(searchIconColorResID != null)
+                setSearchIconColor(searchIconColorResID)
+
+            if (searchIconColorColorString != null)
+                setSearchIconColor(searchIconColorColorString)
+
         }
 
         binding.imageViewSearch.setOnClickListener {
