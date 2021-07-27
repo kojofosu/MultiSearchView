@@ -19,7 +19,7 @@ allprojects {
 
 dependencies {
     //implementation 'com.github.iammert:MultiSearchView:0.3'
-    implementation 'com.github.kojofosu:MultiSearchView:0.5'
+    implementation 'com.github.kojofosu:MultiSearchView:0.6'
 }
 ```
 
