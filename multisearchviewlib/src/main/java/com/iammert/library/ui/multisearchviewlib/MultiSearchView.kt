@@ -31,6 +31,11 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
             binding.searchViewContainer.hint = value
         }
 
+    var hintColor : Int?
+        get() = binding.searchViewContainer.hintColor
+        set(value) {
+            binding.searchViewContainer.hintColor = value
+        }
     init {
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.MultiSearchView, defStyleAttr, defStyleAttr)
         val searchTextStyle = typedArray.getResourceId(R.styleable.MultiSearchView_searchTextStyle, 0)

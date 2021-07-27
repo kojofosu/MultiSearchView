@@ -26,6 +26,8 @@ class MultiSearchContainerView @JvmOverloads constructor(
 
     var hint = "Search"
 
+    var hintColor: Int? = null
+
     var selectedTabStyle = 0
 
     var searchTextStyle = 0
@@ -193,6 +195,7 @@ class MultiSearchContainerView @JvmOverloads constructor(
         val viewItem: ViewItemBinding = context.inflate(R.layout.view_item)
 
         viewItem.editTextSearch.hint = hint
+        hintColor?.let { viewItem.editTextSearch.setHintTextColor(it) }
         viewItem.editTextSearch.setStyle(context, searchTextStyle)
 
         viewItem.root.layoutParams = LinearLayout.LayoutParams(searchViewWidth.toInt(), WRAP_CONTENT)
