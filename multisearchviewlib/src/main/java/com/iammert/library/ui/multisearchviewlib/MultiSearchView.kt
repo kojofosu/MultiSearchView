@@ -1,6 +1,8 @@
 package com.iammert.library.ui.multisearchviewlib
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.AttributeSet
 import android.widget.RelativeLayout
@@ -40,7 +42,8 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.MultiSearchView, defStyleAttr, defStyleAttr)
         val searchTextStyle = typedArray.getResourceId(R.styleable.MultiSearchView_searchTextStyle, 0)
         val imageSource = typedArray.getResourceId(R.styleable.MultiSearchView_searchIcon, R.drawable.ic_round_search_24px)
-        val searchIconColor = typedArray.getResourceId(R.styleable.MultiSearchView_searchIconColor, android.R.color.black)
+        val searchIconColorResID = typedArray.getResourceId(R.styleable.MultiSearchView_searchIconColor, android.R.color.black)
+        val searchIconColorColorString = typedArray.getString(R.styleable.MultiSearchView_searchIconColor)
         val selectedTabStyle = typedArray.getInteger(R.styleable.MultiSearchView_selectedTabStyle, 0)
 
         binding.searchViewContainer.apply {
@@ -50,8 +53,9 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
 
         setSearchIconDrawable(imageSource)
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            setSearchIconColor(searchIconColor)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setSearchIconColor(searchIconColorResID)
+            setSearchIconColor(searchIconColorColorString!!)
         }
 
         binding.imageViewSearch.setOnClickListener {
@@ -75,5 +79,17 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun setSearchIconColor(color : Int) {
         binding.imageViewSearch.imageTintList = AppCompatResources.getColorStateList(context, color)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    fun setSearchIconColor(colorString: String){
+        val drawable: Drawable = binding.imageViewSearch.drawable
+        drawable.setTint(Color.parseColor(colorString))
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun setSearchIconColor(color: Color){
+        val drawable: Drawable = binding.imageViewSearch.drawable
+        drawable.setTint(color.toArgb())
     }
 }
