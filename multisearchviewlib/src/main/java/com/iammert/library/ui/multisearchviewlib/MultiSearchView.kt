@@ -10,7 +10,6 @@ import android.widget.RelativeLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.RequiresApi
-import androidx.appcompat.content.res.AppCompatResources
 import com.iammert.library.ui.multisearchviewlib.databinding.ViewMultiSearchBinding
 import com.iammert.library.ui.multisearchviewlib.extensions.inflate
 
@@ -53,7 +52,7 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if(searchIconColorResID != null)
-                setSearchIconColor(searchIconColorResID)
+                setSearchIconColor(resources.getColor(searchIconColorResID, context.theme))
 
             if (searchIconColorColorString != null)
                 setSearchIconColor(searchIconColorColorString)
@@ -96,19 +95,14 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun setSearchIconColor(color : Int) {
-        binding.imageViewSearch.imageTintList = AppCompatResources.getColorStateList(context, color)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun setSearchIconColor(colorString: String){
         val drawable: Drawable = binding.imageViewSearch.drawable
         drawable.setTint(Color.parseColor(colorString))
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun setSearchIconColor(color: Color){
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    fun setSearchIconColor(@ColorInt colorInt: Int){
         val drawable: Drawable = binding.imageViewSearch.drawable
-        drawable.setTint(color.toArgb())
+        drawable.setTint(colorInt)
     }
 }

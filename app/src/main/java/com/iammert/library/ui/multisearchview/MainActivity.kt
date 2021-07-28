@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.multiSearchView.hint = "What are you looking for?"
         binding.multiSearchView.setHintTextColor("#0DD413")
-        binding.multiSearchView.setSearchIconColor(R.color.colorAccent)
+        binding.multiSearchView.setSearchIconColor("#D4C50D")
 
         binding.multiSearchView.setSearchViewListener(object : MultiSearchView.MultiSearchViewListener{
             override fun onItemSelected(index: Int, s: CharSequence) {
