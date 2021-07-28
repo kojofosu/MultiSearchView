@@ -1,11 +1,14 @@
 package com.iammert.library.ui.multisearchviewlib
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.AttributeSet
 import android.widget.RelativeLayout
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
 import com.iammert.library.ui.multisearchviewlib.databinding.ViewMultiSearchBinding
@@ -75,14 +78,21 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         binding.imageViewSearch.setImageResource(drawable)
     }
 
-    fun setHintColor(colorString: String) {
-        val colorInt = Color.parseColor(colorString)
-        binding.searchViewContainer.hintColor = colorInt
+    fun setHintTextColor(colorString: String) {
+        binding.searchViewContainer.hintColorStateList = ColorStateList.valueOf(Color.parseColor(colorString))
     }
 
-    fun setHintColor(color: Int) {
-        val colorStateList = AppCompatResources.getColorStateList(context, color)
-        binding.searchViewContainer.hintColorStateList = colorStateList
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun setHintTextAppearance(@ColorRes resId: Int) {
+        binding.searchViewContainer.hintColorStateList = resources.getColorStateList(resId, context.theme)
+    }
+
+    fun setHintTextColor(colors: ColorStateList) {
+        binding.searchViewContainer.hintColorStateList = colors
+    }
+
+    fun setHintTextColor(@ColorInt colorInt: Int) {
+        binding.searchViewContainer.hintColorStateList = ColorStateList.valueOf(colorInt)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

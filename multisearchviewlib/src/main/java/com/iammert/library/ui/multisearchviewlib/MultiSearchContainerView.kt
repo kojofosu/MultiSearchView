@@ -27,8 +27,6 @@ class MultiSearchContainerView @JvmOverloads constructor(
 
     var hint = "Search"
 
-    var hintColor: Int? = null
-
     var hintColorStateList: ColorStateList? = null
 
     var selectedTabStyle = 0
@@ -201,10 +199,6 @@ class MultiSearchContainerView @JvmOverloads constructor(
 
         if (hintColorStateList != null)
             viewItem.editTextSearch.setHintTextColor(hintColorStateList)
-
-        if (hintColor != null)
-            viewItem.editTextSearch.setHintTextColor(hintColor as Int)
-
 
         viewItem.editTextSearch.setStyle(context, searchTextStyle)
 
