@@ -45,7 +45,7 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         val selectedTabColor = typedArray.getColor(R.styleable.MultiSearchView_selectedTabColor, Color.BLACK)
         val clearIconColor = typedArray.getColor(R.styleable.MultiSearchView_clearIconColor, Color.BLACK)
         val searchTextColor = typedArray.getColor(R.styleable.MultiSearchView_searchTextColor, Color.BLACK)
-        val hintTextColor = typedArray.getColor(R.styleable.MultiSearchView_hintTextColor, Color.GRAY)
+        val hintTextColor = typedArray.getColor(R.styleable.MultiSearchView_hintColor, Color.GRAY)
 
         binding.searchViewContainer.apply {
             this.searchTextStyle = searchTextStyle

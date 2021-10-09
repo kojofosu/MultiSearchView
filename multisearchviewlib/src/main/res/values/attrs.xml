@@ -9,7 +9,7 @@
         <attr name="selectedTabColor" format="reference|color|string"/>
         <attr name="clearIconColor" format="reference|color|string"/>
         <attr name="searchTextColor" format="reference|color|string"/>
-        <attr name="hintTextColor" format="reference|color|string"/>
+        <attr name="hintColor" format="reference|color|string"/>
         <!--set selected tab style-->
         <attr name="selectedTabStyle" format="enum">
             <enum name="line" value="0"/>
