@@ -4,6 +4,7 @@ import android.animation.LayoutTransition
 import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
@@ -30,6 +31,7 @@ class MultiSearchContainerView @JvmOverloads constructor(
     var hintColorStateList: ColorStateList? = null
 
     var selectedTabStyle = 0
+    var selectedTabSColor = Color.BLACK
 
     var searchTextStyle = 0
 
@@ -96,8 +98,14 @@ class MultiSearchContainerView @JvmOverloads constructor(
         interpolator = LinearOutSlowInInterpolator()
         addUpdateListener { valueAnimator ->
             when (selectedTabStyle) {
-                0 -> binding.viewIndicator.x = valueAnimator.animatedValue as Float
-                1 -> binding.viewIndicator2.x = valueAnimator.animatedValue as Float
+                0 -> {
+                    binding.viewIndicator.setBackgroundColor(selectedTabSColor)
+                    binding.viewIndicator.x = valueAnimator.animatedValue as Float
+                }
+                1 -> {
+                    binding.viewIndicator2.setBackgroundColor(selectedTabSColor)
+                    binding.viewIndicator2.x = valueAnimator.animatedValue as Float
+                }
             }
         }
     }

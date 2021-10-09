@@ -42,17 +42,18 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         val searchIconColorResID = typedArray.getResourceId(R.styleable.MultiSearchView_searchIconColor, android.R.color.black)
         val searchIconColorColorString = typedArray.getString(R.styleable.MultiSearchView_searchIconColor)
         val selectedTabStyle = typedArray.getInteger(R.styleable.MultiSearchView_selectedTabStyle, 0)
+        val selectedTabColor = typedArray.getColor(R.styleable.MultiSearchView_selectedTabColor, Color.BLACK)
 
         binding.searchViewContainer.apply {
             this.searchTextStyle = searchTextStyle
             this.selectedTabStyle = selectedTabStyle
+            this.selectedTabSColor = selectedTabColor
         }
 
         setSearchIconDrawable(imageSource)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if(searchIconColorResID != null)
-                setSearchIconColor(resources.getColor(searchIconColorResID, context.theme))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            setSearchIconColor(resources.getColor(searchIconColorResID, context.theme))
 
             if (searchIconColorColorString != null)
                 setSearchIconColor(searchIconColorColorString)
@@ -72,6 +73,9 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         binding.searchViewContainer.setSearchViewListener(multiSearchViewListener)
     }
 
+    fun setSelectedTabColor(colorInt: Int){
+        binding.searchViewContainer.selectedTabSColor = colorInt
+    }
 
     fun setSearchIconDrawable(drawable: Int) {
         binding.imageViewSearch.setImageResource(drawable)

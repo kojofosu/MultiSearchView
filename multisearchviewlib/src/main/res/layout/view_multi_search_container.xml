@@ -32,6 +32,7 @@
                         android:layout_width="24dp"
                         android:layout_height="4dp"
                         android:background="@drawable/indicator_line"
+                        android:backgroundTintMode="add"
                         android:visibility="gone"/>
 
                 <!--selected tab mode : dot-->
@@ -40,6 +41,7 @@
                         android:layout_width="5dp"
                         android:layout_height="5dp"
                         android:background="@drawable/indicator_line"
+                        android:backgroundTintMode="add"
                         android:visibility="gone"
                         android:layout_marginTop="8dp"/>
 
