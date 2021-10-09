@@ -5,6 +5,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
@@ -32,6 +33,7 @@ class MultiSearchContainerView @JvmOverloads constructor(
 
     var selectedTabStyle = 0
     var selectedTabSColor = Color.BLACK
+    var clearIconColor = Color.BLACK
 
     var searchTextStyle = 0
 
@@ -204,6 +206,9 @@ class MultiSearchContainerView @JvmOverloads constructor(
         val viewItem: ViewItemBinding = context.inflate(R.layout.view_item)
 
         viewItem.editTextSearch.hint = hint
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            viewItem.imageViewRemove.imageTintList = ColorStateList.valueOf(clearIconColor)
+        }
 
         if (hintColorStateList != null)
             viewItem.editTextSearch.setHintTextColor(hintColorStateList)

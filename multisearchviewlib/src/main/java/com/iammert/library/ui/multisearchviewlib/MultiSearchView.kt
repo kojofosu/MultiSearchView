@@ -43,14 +43,18 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         val searchIconColorColorString = typedArray.getString(R.styleable.MultiSearchView_searchIconColor)
         val selectedTabStyle = typedArray.getInteger(R.styleable.MultiSearchView_selectedTabStyle, 0)
         val selectedTabColor = typedArray.getColor(R.styleable.MultiSearchView_selectedTabColor, Color.BLACK)
+        val clearIconColor = typedArray.getColor(R.styleable.MultiSearchView_clearIconColor, Color.BLACK)
 
         binding.searchViewContainer.apply {
             this.searchTextStyle = searchTextStyle
             this.selectedTabStyle = selectedTabStyle
             this.selectedTabSColor = selectedTabColor
+            this.clearIconColor = clearIconColor
         }
 
         setSearchIconDrawable(imageSource)
+        setSelectedTabColor(selectedTabColor)
+        setClearIconColor(clearIconColor)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setSearchIconColor(resources.getColor(searchIconColorResID, context.theme))
@@ -85,6 +89,9 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         binding.searchViewContainer.hintColorStateList = ColorStateList.valueOf(Color.parseColor(colorString))
     }
 
+    fun setClearIconColor(colorInt: Int) {
+        binding.searchViewContainer.clearIconColor = colorInt
+    }
     @RequiresApi(Build.VERSION_CODES.M)
     fun setHintTextAppearance(@ColorRes resId: Int) {
         binding.searchViewContainer.hintColorStateList = resources.getColorStateList(resId, context.theme)

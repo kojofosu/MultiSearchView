@@ -7,6 +7,7 @@
         <!--set icon color for the default icon-->
         <attr name="searchIconColor" format="reference|color|string"/>
         <attr name="selectedTabColor" format="reference|color|string"/>
+        <attr name="clearIconColor" format="reference|color|string"/>
         <!--set selected tab style-->
         <attr name="selectedTabStyle" format="enum">
             <enum name="line" value="0"/>
