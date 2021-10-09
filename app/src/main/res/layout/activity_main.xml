@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:selectedTabStyle="dot"
-                app:clearIconColor="@@android:color/white"
+            app:selectedTabStyle="line"
+                app:clearIconColor="@android:color/white"
                 app:selectedTabColor="@android:color/white"/>
     </LinearLayout>
 

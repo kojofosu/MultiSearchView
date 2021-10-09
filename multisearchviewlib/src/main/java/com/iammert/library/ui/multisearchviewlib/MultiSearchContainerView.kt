@@ -101,11 +101,15 @@ class MultiSearchContainerView @JvmOverloads constructor(
         addUpdateListener { valueAnimator ->
             when (selectedTabStyle) {
                 0 -> {
-                    binding.viewIndicator.setBackgroundColor(selectedTabSColor)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        binding.viewIndicator.backgroundTintList = ColorStateList.valueOf(selectedTabSColor)
+                    }
                     binding.viewIndicator.x = valueAnimator.animatedValue as Float
                 }
                 1 -> {
-                    binding.viewIndicator2.setBackgroundColor(selectedTabSColor)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        binding.viewIndicator2.backgroundTintList = ColorStateList.valueOf(selectedTabSColor)
+                    }
                     binding.viewIndicator2.x = valueAnimator.animatedValue as Float
                 }
             }
