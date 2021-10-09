@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:selectedTabStyle="line"
-                app:hintTextColor="@android:color/holo_orange_light"
+                app:hintColor="@android:color/holo_orange_light"
                 app:searchIconColor="@android:color/holo_orange_light"
                 app:searchTextColor="@android:color/white"
                 app:clearIconColor="@android:color/white"
