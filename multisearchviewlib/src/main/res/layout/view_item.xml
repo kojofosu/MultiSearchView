@@ -28,7 +28,8 @@
                 android:maxLength="15"
                 android:textSize="18sp"
                 android:inputType="textCapSentences"
-                android:textColorHint="#80999999"/>
+                android:textColorHint="#80999999"
+                android:textCursorDrawable="@null"/>
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageViewRemove"

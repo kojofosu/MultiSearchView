@@ -34,7 +34,7 @@ class MultiSearchContainerView @JvmOverloads constructor(
     var selectedTabStyle = 0
     var selectedTabSColor = Color.BLACK
     var clearIconColor = Color.BLACK
-    var searchTextColor = Color.BLACK
+    var searchTextColor = Color.WHITE
 
     var searchTextStyle = 0
 
@@ -210,17 +210,16 @@ class MultiSearchContainerView @JvmOverloads constructor(
     private fun createNewSearchView(): ViewItemBinding {
         val viewItem: ViewItemBinding = context.inflate(R.layout.view_item)
 
-        viewItem.editTextSearch.hint = hint
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             viewItem.imageViewRemove.imageTintList = ColorStateList.valueOf(clearIconColor)
         }
 
         if (hintColorStateList != null)
-            viewItem.editTextSearch.setTextColor(searchTextColor)
             viewItem.editTextSearch.setHintTextColor(hintColorStateList)
 
         viewItem.editTextSearch.setStyle(context, searchTextStyle)
-
+        viewItem.editTextSearch.setTextColor(searchTextColor)
+        viewItem.editTextSearch.hint = hint
         viewItem.root.layoutParams = LinearLayout.LayoutParams(searchViewWidth.toInt(), WRAP_CONTENT)
 
         viewItem.root.setOnClickListener {
