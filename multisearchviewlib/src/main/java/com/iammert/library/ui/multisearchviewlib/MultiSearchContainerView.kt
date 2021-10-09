@@ -164,7 +164,7 @@ class MultiSearchContainerView @JvmOverloads constructor(
         hideKeyboard(context)
 
         selectedTab?.let {
-            if (it.editTextSearch.text.length < 3) {
+            if (it.editTextSearch.text.length < 1) {
                 removeTab(it)
                 return
             }
