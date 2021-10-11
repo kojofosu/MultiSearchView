@@ -54,6 +54,13 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
             this.clearIconColor = clearIconColor
             this.searchTextColor = searchTextColor
             this.hintTextColor = hintTextColor
+            setOnClickListener {
+                if (binding.searchViewContainer.isInSearchMode().not()) {
+                    binding.searchViewContainer.search()
+                } else {
+                    binding.searchViewContainer.completeSearch()
+                }
+            }
         }
 
         setSearchIconDrawable(imageSource)
