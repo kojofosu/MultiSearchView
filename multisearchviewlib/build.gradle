@@ -55,7 +55,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.iammert.library.ui.multisearchviewlib'
                 artifactId = 'MultiSearchView'
-                version = '1.0'
+                version = '1.4'
             }
         }
     }
