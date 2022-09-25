@@ -132,4 +132,12 @@ class MultiSearchView @JvmOverloads constructor(context: Context, attrs: Attribu
         val drawable: Drawable = binding.imageViewSearch.drawable
         drawable.setTint(colorInt)
     }
+
+    fun activateSearchMode() {
+        if (binding.searchViewContainer.isInSearchMode().not()) {
+            binding.searchViewContainer.search()
+        } else {
+            binding.searchViewContainer.completeSearch()
+        }
+    }
 }

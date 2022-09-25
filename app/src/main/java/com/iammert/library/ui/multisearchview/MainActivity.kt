@@ -16,10 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        binding.tv.setOnClickListener { binding.multiSearchView.activateSearchMode() }
         binding.multiSearchView.hint = "Search?"
+        binding.multiSearchView.setSearchTextColor(resources.getColor(android.R.color.white, theme))
 //        binding.multiSearchView.setHintTextColor(Color.BLUE)
 //        binding.multiSearchView.setSearchIconColor("#D4C50D")
-
         binding.multiSearchView.setSearchViewListener(object : MultiSearchView.MultiSearchViewListener{
             override fun onItemSelected(index: Int, s: CharSequence) {
                 Log.v("TEST", "onItemSelected: index: $index, query: $s")
